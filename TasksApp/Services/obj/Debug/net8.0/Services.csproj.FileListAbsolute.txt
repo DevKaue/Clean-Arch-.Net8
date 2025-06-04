@@ -1,0 +1,17 @@
+F:\Udemy\CleanArch.NET\TasksApp\Services\bin\Debug\net8.0\Services.deps.json
+F:\Udemy\CleanArch.NET\TasksApp\Services\bin\Debug\net8.0\Services.dll
+F:\Udemy\CleanArch.NET\TasksApp\Services\bin\Debug\net8.0\Services.pdb
+F:\Udemy\CleanArch.NET\TasksApp\Services\bin\Debug\net8.0\Domain.dll
+F:\Udemy\CleanArch.NET\TasksApp\Services\bin\Debug\net8.0\Infra.dll
+F:\Udemy\CleanArch.NET\TasksApp\Services\bin\Debug\net8.0\Domain.pdb
+F:\Udemy\CleanArch.NET\TasksApp\Services\bin\Debug\net8.0\Infra.pdb
+F:\Udemy\CleanArch.NET\TasksApp\Services\obj\Debug\net8.0\Services.csproj.AssemblyReference.cache
+F:\Udemy\CleanArch.NET\TasksApp\Services\obj\Debug\net8.0\Services.GeneratedMSBuildEditorConfig.editorconfig
+F:\Udemy\CleanArch.NET\TasksApp\Services\obj\Debug\net8.0\Services.AssemblyInfoInputs.cache
+F:\Udemy\CleanArch.NET\TasksApp\Services\obj\Debug\net8.0\Services.AssemblyInfo.cs
+F:\Udemy\CleanArch.NET\TasksApp\Services\obj\Debug\net8.0\Services.csproj.CoreCompileInputs.cache
+F:\Udemy\CleanArch.NET\TasksApp\Services\obj\Debug\net8.0\Services.csproj.Up2Date
+F:\Udemy\CleanArch.NET\TasksApp\Services\obj\Debug\net8.0\Services.dll
+F:\Udemy\CleanArch.NET\TasksApp\Services\obj\Debug\net8.0\refint\Services.dll
+F:\Udemy\CleanArch.NET\TasksApp\Services\obj\Debug\net8.0\Services.pdb
+F:\Udemy\CleanArch.NET\TasksApp\Services\obj\Debug\net8.0\ref\Services.dll

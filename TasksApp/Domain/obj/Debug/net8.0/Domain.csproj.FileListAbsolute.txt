@@ -1,0 +1,11 @@
+F:\Udemy\CleanArch.NET\TasksApp\Domain\bin\Debug\net8.0\Domain.deps.json
+F:\Udemy\CleanArch.NET\TasksApp\Domain\bin\Debug\net8.0\Domain.dll
+F:\Udemy\CleanArch.NET\TasksApp\Domain\bin\Debug\net8.0\Domain.pdb
+F:\Udemy\CleanArch.NET\TasksApp\Domain\obj\Debug\net8.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+F:\Udemy\CleanArch.NET\TasksApp\Domain\obj\Debug\net8.0\Domain.AssemblyInfoInputs.cache
+F:\Udemy\CleanArch.NET\TasksApp\Domain\obj\Debug\net8.0\Domain.AssemblyInfo.cs
+F:\Udemy\CleanArch.NET\TasksApp\Domain\obj\Debug\net8.0\Domain.csproj.CoreCompileInputs.cache
+F:\Udemy\CleanArch.NET\TasksApp\Domain\obj\Debug\net8.0\Domain.dll
+F:\Udemy\CleanArch.NET\TasksApp\Domain\obj\Debug\net8.0\refint\Domain.dll
+F:\Udemy\CleanArch.NET\TasksApp\Domain\obj\Debug\net8.0\Domain.pdb
+F:\Udemy\CleanArch.NET\TasksApp\Domain\obj\Debug\net8.0\ref\Domain.dll

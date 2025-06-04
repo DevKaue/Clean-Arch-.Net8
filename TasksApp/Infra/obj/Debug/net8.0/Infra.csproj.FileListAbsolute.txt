@@ -1,0 +1,15 @@
+F:\Udemy\CleanArch.NET\TasksApp\Infra\bin\Debug\net8.0\Infra.deps.json
+F:\Udemy\CleanArch.NET\TasksApp\Infra\bin\Debug\net8.0\Infra.dll
+F:\Udemy\CleanArch.NET\TasksApp\Infra\bin\Debug\net8.0\Infra.pdb
+F:\Udemy\CleanArch.NET\TasksApp\Infra\bin\Debug\net8.0\Domain.dll
+F:\Udemy\CleanArch.NET\TasksApp\Infra\bin\Debug\net8.0\Domain.pdb
+F:\Udemy\CleanArch.NET\TasksApp\Infra\obj\Debug\net8.0\Infra.csproj.AssemblyReference.cache
+F:\Udemy\CleanArch.NET\TasksApp\Infra\obj\Debug\net8.0\Infra.GeneratedMSBuildEditorConfig.editorconfig
+F:\Udemy\CleanArch.NET\TasksApp\Infra\obj\Debug\net8.0\Infra.AssemblyInfoInputs.cache
+F:\Udemy\CleanArch.NET\TasksApp\Infra\obj\Debug\net8.0\Infra.AssemblyInfo.cs
+F:\Udemy\CleanArch.NET\TasksApp\Infra\obj\Debug\net8.0\Infra.csproj.CoreCompileInputs.cache
+F:\Udemy\CleanArch.NET\TasksApp\Infra\obj\Debug\net8.0\Infra.csproj.Up2Date
+F:\Udemy\CleanArch.NET\TasksApp\Infra\obj\Debug\net8.0\Infra.dll
+F:\Udemy\CleanArch.NET\TasksApp\Infra\obj\Debug\net8.0\refint\Infra.dll
+F:\Udemy\CleanArch.NET\TasksApp\Infra\obj\Debug\net8.0\Infra.pdb
+F:\Udemy\CleanArch.NET\TasksApp\Infra\obj\Debug\net8.0\ref\Infra.dll
