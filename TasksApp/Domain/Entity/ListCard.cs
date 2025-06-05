@@ -1,4 +1,6 @@
-﻿namespace Domain.Entity
+﻿using Domain.Enum;
+
+namespace Domain.Entity
 {
     public class ListCard
     {
@@ -10,5 +12,3 @@
         public ICollection<Card>? Cards { get; set; } 
     }
 }
-
-//TODO: Realizar a criação do Status da entidade ListCard

@@ -1,4 +1,6 @@
-﻿namespace Domain.Entity
+﻿using Domain.Enum;
+
+namespace Domain.Entity
 {
     public class Workspace
     {
@@ -10,5 +12,3 @@
         public DateTime CreatedAt { get; set; } = DateTime.Now;
     }
 }
-
-//TODO: Realizar a criação do Status da entidade WorkSpace

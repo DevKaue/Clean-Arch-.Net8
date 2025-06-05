@@ -1,4 +1,6 @@
-﻿namespace Domain.Entity
+﻿using Domain.Enum;
+
+namespace Domain.Entity
 {
     public  class Card
     {
@@ -11,5 +13,3 @@
         public StatusCardEnum Status { get; set; }
     }
 }
-
-//TODO: Realizar a criação do Status da entidade Card
