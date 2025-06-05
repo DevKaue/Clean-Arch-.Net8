@@ -10,3 +10,5 @@
         public DateTime CreatedAt { get; set; } = DateTime.Now;
     }
 }
+
+//TODO: Realizar a criação do Status da entidade WorkSpace
