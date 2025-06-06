@@ -29,7 +29,7 @@ namespace Application.UserCQ.Handlers
             return new ResponseBase<UserInfoViewModel>
             {
                 ResponseInfo = null,
-                Value = new ()
+                Value = new()
                 {
                     Name = user.Name,
                     Surname = user.Surname,

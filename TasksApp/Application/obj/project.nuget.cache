@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "0RQWz4bApuw=",
+  "dgSpecHash": "CMmdZOLxGL4=",
   "success": true,
   "projectFilePath": "F:\\Udemy\\CleanArch.NET\\TasksApp\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kaue\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\kaue\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
+    "C:\\Users\\kaue\\.nuget\\packages\\fluentvalidation\\12.0.0\\fluentvalidation.12.0.0.nupkg.sha512",
     "C:\\Users\\kaue\\.nuget\\packages\\mediatr\\12.5.0\\mediatr.12.5.0.nupkg.sha512",
     "C:\\Users\\kaue\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\kaue\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
