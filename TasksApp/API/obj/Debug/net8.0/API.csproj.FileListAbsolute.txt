@@ -175,3 +175,5 @@ F:\Udemy\CleanArch.NET\TasksApp\API\bin\Debug\net8.0\runtimes\win\lib\net6.0\Sys
 F:\Udemy\CleanArch.NET\TasksApp\API\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 F:\Udemy\CleanArch.NET\TasksApp\API\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 F:\Udemy\CleanArch.NET\TasksApp\API\obj\Debug\net8.0\API.sourcelink.json
+F:\Udemy\CleanArch.NET\TasksApp\API\bin\Debug\net8.0\MediatR.dll
+F:\Udemy\CleanArch.NET\TasksApp\API\bin\Debug\net8.0\MediatR.Contracts.dll
