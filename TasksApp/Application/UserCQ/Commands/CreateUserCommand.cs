@@ -1,9 +1,10 @@
-﻿using Application.UserCQ.ViewModels;
+﻿using Application.Response;
+using Application.UserCQ.ViewModels;
 using MediatR;
 
 namespace Application.UserCQ.Commands
 {
-    public record CreateUserCommand : IRequest<UserInfoViewModel>
+    public record CreateUserCommand : IRequest<ResponseBase<UserInfoViewModel?>>
     {
         public string ? Name { get; set; }
         public string? Surname { get; set; }
