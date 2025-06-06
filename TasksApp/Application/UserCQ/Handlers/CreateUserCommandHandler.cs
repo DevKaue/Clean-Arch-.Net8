@@ -22,7 +22,7 @@ namespace Application.UserCQ.Handlers
                 RefreshTokenExpirationTime = DateTime.Now.AddDays(5)
             };
 
-           _context.Users.Add(user); 
+            _context.Users.Add(user);
             _context.SaveChanges();
 
             var userInfo = new UserInfoViewModel()
