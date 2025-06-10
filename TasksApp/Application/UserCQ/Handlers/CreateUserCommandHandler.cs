@@ -18,6 +18,7 @@ namespace Application.UserCQ.Handlers
         public async Task<ResponseBase<UserInfoViewModel>> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
             var user = _mapper.Map<User>(request);
+            user.RefreshToken = _authService.GenerateRefreshToken();
 
             _context.Users.Add(user);
             _context.SaveChanges();

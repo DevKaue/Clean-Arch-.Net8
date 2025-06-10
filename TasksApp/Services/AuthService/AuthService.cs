@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -38,5 +39,15 @@ namespace Services.AuthService
 
             return tokenHandler.WriteToken(token);
         }   
+    
+        public string GenerateRefreshToken()
+        {
+            var secureRandomBytes = new byte[128];
+            using var randonNumberGenerator = RandomNumberGenerator.Create();
+
+            randonNumberGenerator.GetBytes(secureRandomBytes);
+
+            return Convert.ToBase64String(secureRandomBytes);
+        }
     }
 }

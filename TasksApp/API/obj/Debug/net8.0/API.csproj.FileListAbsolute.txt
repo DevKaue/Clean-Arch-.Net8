@@ -183,3 +183,4 @@ F:\Udemy\CleanArch.NET\TasksApp\API\bin\Debug\net8.0\FluentValidation.Dependency
 F:\Udemy\CleanArch.NET\TasksApp\API\bin\Debug\net8.0\AutoMapper.dll
 F:\Udemy\CleanArch.NET\TasksApp\API\bin\Debug\net8.0\API.xml
 F:\Udemy\CleanArch.NET\TasksApp\API\obj\Debug\net8.0\API.xml
+F:\Udemy\CleanArch.NET\TasksApp\API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

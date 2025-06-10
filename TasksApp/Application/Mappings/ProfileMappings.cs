@@ -10,8 +10,8 @@ namespace Application.Mappings
         public ProfileMappings()
         {
             CreateMap<CreateUserCommand, User>()
-                .ForMember(x => x.RefreshToken, x => x.MapFrom(x => GenerateGuid()))
-                .ForMember(x => x.RefreshTokenExpirationTime, x => x.MapFrom(x => AddFiveDays()))
+                .ForMember(x => x.RefreshToken, x => x.AllowNull())
+                .ForMember(x => x.RefreshTokenExpirationTime, x => x.MapFrom(x => AddTwoDays()))
                 .ForMember(x => x.PasswordHash, x => x.MapFrom(x => x.Password));
 
             CreateMap<User, UserInfoViewModel>()
@@ -19,13 +19,9 @@ namespace Application.Mappings
 
         }
 
-        private string GenerateGuid()
-        {
-            return Guid.NewGuid().ToString();
-        }
-        private DateTime AddFiveDays()
+        private DateTime AddTwoDays()
         {  
-            return DateTime.Now.AddDays(5); 
+            return DateTime.Now.AddDays(2); 
         }
     }
 }
