@@ -1,4 +1,6 @@
 ﻿using Domain.Abstractions;
+using Domain.Enum;
+using Infra.Persistence;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -12,9 +14,10 @@ using System.Threading.Tasks;
 
 namespace Services.AuthService
 {
-    public class AuthService(IConfiguration configuration) : IAuthService
+    public class AuthService(IConfiguration configuration, TasksDbContext context) : IAuthService
     {
         private readonly IConfiguration _configuration = configuration;
+        private readonly TasksDbContext _context = context;
         public string GenerateJWT(string email, string username)
         {
             var issuer = _configuration["JWT:Issuer"];
@@ -62,6 +65,26 @@ namespace Services.AuthService
             }
 
             return builder.ToString();
+        }
+    
+        public ValidationFieldsUserEnum UniqueEmailAndUsername(string email, string username)
+        {
+            var user = _context.Users.ToList();
+            var emailExists = user.Exists(x => x.Email == email);
+            var usernameExists = user.Exists(x => x.UserName == username);
+
+            if (emailExists)
+            {
+                return ValidationFieldsUserEnum.EmailUnavailable;
+            }
+
+            if (usernameExists) 
+            {
+                return ValidationFieldsUserEnum.UserNameUnavailable;
+            }
+
+            return ValidationFieldsUserEnum.UsernameAndEmailUnavailable;
+                
         }
     }
 }
