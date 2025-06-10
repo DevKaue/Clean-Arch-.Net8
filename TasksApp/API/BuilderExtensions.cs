@@ -6,6 +6,7 @@ using Infra.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Application.Mappings;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
 
 namespace API
 {
@@ -31,6 +32,8 @@ namespace API
                         Url = new Uri("hhtps://example.com/license")
                     }
                 });
+                var xmlFilename= $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
             });
         }
 
