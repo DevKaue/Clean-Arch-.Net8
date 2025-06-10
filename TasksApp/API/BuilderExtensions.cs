@@ -4,6 +4,7 @@ using FluentValidation.AspNetCore;
 using FluentValidation;
 using Infra.Persistence;
 using Microsoft.EntityFrameworkCore;
+using Application.Mappings;
 
 namespace API
 {
@@ -28,6 +29,11 @@ namespace API
         {
             builder.Services.AddValidatorsFromAssemblyContaining<CreateUserCommandValidator>();
             builder.Services.AddFluentValidationAutoValidation();
+        }
+
+        public static void AddMapper(this WebApplicationBuilder builder)
+        {
+            builder.Services.AddAutoMapper(typeof(ProfileMappings).Assembly);
         }
     }
 }

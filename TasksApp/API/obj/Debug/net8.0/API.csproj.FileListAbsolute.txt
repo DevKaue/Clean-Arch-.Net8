@@ -180,3 +180,4 @@ F:\Udemy\CleanArch.NET\TasksApp\API\bin\Debug\net8.0\MediatR.Contracts.dll
 F:\Udemy\CleanArch.NET\TasksApp\API\bin\Debug\net8.0\FluentValidation.dll
 F:\Udemy\CleanArch.NET\TasksApp\API\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
 F:\Udemy\CleanArch.NET\TasksApp\API\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
+F:\Udemy\CleanArch.NET\TasksApp\API\bin\Debug\net8.0\AutoMapper.dll

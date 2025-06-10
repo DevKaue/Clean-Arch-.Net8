@@ -10,7 +10,7 @@ namespace Application.UserCQ.Validators
         {
             RuleFor(x => x.Email).NotEmpty().WithMessage("O campo 'email' não pode ser vazio")
                 .EmailAddress().WithMessage("O campo 'email' não é válido.");
-            RuleFor(x => x.Username).MinimumLength(1).WithMessage("O campo 'username' não pode estar vazio.");
+            RuleFor(x => x.Username).NotEmpty().WithMessage("O campo 'username' não pode estar vazio.");
         }
     }
 }

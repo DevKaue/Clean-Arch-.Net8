@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.AddServices();
 builder.AddDatabase();
 builder.AddValidations();
-
+builder.AddMapper();
 
 var app = builder.Build();
 
