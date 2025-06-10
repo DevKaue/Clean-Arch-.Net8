@@ -13,12 +13,13 @@ namespace Application.UserCQ.Handlers
     {
         private readonly TasksDbContext _context = context;
         private readonly IMapper _mapper = mapper;
-        private readonly IAuthService _authService;
+        private readonly IAuthService _authService = authService;
 
         public async Task<ResponseBase<UserInfoViewModel>> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
             var user = _mapper.Map<User>(request);
             user.RefreshToken = _authService.GenerateRefreshToken();
+            user.PasswordHash = _authService.HashingPassword(request.Password!);
 
             _context.Users.Add(user);
             _context.SaveChanges();

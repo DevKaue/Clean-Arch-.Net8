@@ -12,7 +12,7 @@ namespace Application.Mappings
             CreateMap<CreateUserCommand, User>()
                 .ForMember(x => x.RefreshToken, x => x.AllowNull())
                 .ForMember(x => x.RefreshTokenExpirationTime, x => x.MapFrom(x => AddTwoDays()))
-                .ForMember(x => x.PasswordHash, x => x.MapFrom(x => x.Password));
+                .ForMember(x => x.PasswordHash, x => x.AllowNull());
 
             CreateMap<User, UserInfoViewModel>()
                 .ForMember(x => x.TokenJWT, x => x.AllowNull());
