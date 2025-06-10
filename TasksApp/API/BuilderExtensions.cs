@@ -10,6 +10,8 @@ using System.Reflection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Domain.Abstractions;
+using Services.AuthService;
 
 namespace API
 {
@@ -80,6 +82,11 @@ namespace API
         public static void AddMapper(this WebApplicationBuilder builder)
         {
             builder.Services.AddAutoMapper(typeof(ProfileMappings).Assembly);
+        }
+
+        public static void AddInjections(this WebApplicationBuilder builder)
+        {
+            builder.Services.AddScoped<IAuthService,AuthService>();
         }
     }
 }
