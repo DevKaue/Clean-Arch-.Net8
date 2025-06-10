@@ -7,6 +7,9 @@ using Microsoft.EntityFrameworkCore;
 using Application.Mappings;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace API
 {
@@ -37,6 +40,22 @@ namespace API
             });
         }
 
+        public static void AddJwtAuth(this WebApplicationBuilder builder)
+        {
+            builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            {
+                var configuration = builder.Configuration;
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidIssuer = configuration["JWT:Issuer"],
+                    ValidAudience = configuration["JWT:Audience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Key"])),
+                };
+            });
+        }
 
         public static void AddServices(this WebApplicationBuilder builder)
         {
