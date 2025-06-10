@@ -15,7 +15,7 @@ namespace Application.Mappings
                 .ForMember(x => x.PasswordHash, x => x.MapFrom(x => x.Password));
 
             CreateMap<User, UserInfoViewModel>()
-                .ForMember(x => x.TokenJWT, x => x.MapFrom(x => GenerateGuid()));
+                .ForMember(x => x.TokenJWT, x => x.AllowNull());
 
         }
 
