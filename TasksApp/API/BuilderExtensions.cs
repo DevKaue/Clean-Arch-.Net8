@@ -5,16 +5,40 @@ using FluentValidation;
 using Infra.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Application.Mappings;
+using Microsoft.OpenApi.Models;
 
 namespace API
 {
     public static class BuilderExtensions
     {
+        public static void AddSwaggerDocs(this WebApplicationBuilder builder)
+        {
+            builder.Services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "Tasks App",
+                    Description = "Um aplicativo de tarefas e escrito em ASP.NET Core V8",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Kaue Sabino",
+                        Url = new Uri("hhtps://example.com/contact")
+                    },
+                    License = new OpenApiLicense
+                    {
+                        Name = "Página de Licença",
+                        Url = new Uri("hhtps://example.com/license")
+                    }
+                });
+            });
+        }
+
+
         public static void AddServices(this WebApplicationBuilder builder)
         {
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
             builder.Services.AddMediatR(config => config.RegisterServicesFromAssemblies(typeof(CreateUserCommand).Assembly));
 
         }
