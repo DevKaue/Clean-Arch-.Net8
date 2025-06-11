@@ -28,5 +28,10 @@
             <response code="200">Retorna os dados do novo usuário registrado</response>
             <response code="400">Caso ocorra um erro de digitação referente a alguma informação</response>
         </member>
+        <member name="M:API.Controllers.AuthController.Login(Application.UserCQ.Commands.LoginUserCommand)">
+            <summary>
+            Rota responsável pelo login do usuário
+            </summary>
+        </member>
     </members>
 </doc>
