@@ -13,3 +13,6 @@ F:\Udemy\CleanArch.NET\TasksApp\Infra\obj\Debug\net8.0\Infra.dll
 F:\Udemy\CleanArch.NET\TasksApp\Infra\obj\Debug\net8.0\refint\Infra.dll
 F:\Udemy\CleanArch.NET\TasksApp\Infra\obj\Debug\net8.0\Infra.pdb
 F:\Udemy\CleanArch.NET\TasksApp\Infra\obj\Debug\net8.0\ref\Infra.dll
+F:\Udemy\CleanArch.NET\TasksApp\Infra\bin\Debug\net8.0\Infra.runtimeconfig.json
+F:\Udemy\CleanArch.NET\TasksApp\Infra\obj\Debug\net8.0\Infra.sourcelink.json
+F:\Udemy\CleanArch.NET\TasksApp\Infra\obj\Debug\net8.0\Infra.genruntimeconfig.cache
