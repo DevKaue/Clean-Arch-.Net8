@@ -13,7 +13,9 @@ namespace Application.Mappings
                 .ForMember(x => x.RefreshToken, x => x.AllowNull())
                 .ForMember(x => x.RefreshTokenExpirationTime, x => x.MapFrom(x => AddTwoDays()))
                 .ForMember(x => x.PasswordHash, x => x.AllowNull());
-
+            
+            CreateMap<User, RefreshTokenViewModel>()
+                .ForMember(x => x.TokenJWT, x => x.AllowNull());
         }
 
         private DateTime AddTwoDays()

@@ -70,13 +70,13 @@ namespace Application.UserCQ.Handlers
             _context.Users.Add(user);
             _context.SaveChanges();
 
-            var userInfoVm = _mapper.Map<RefreshTokenViewModel>(user);
-            userInfoVm.TokenJWT = _authService.GenerateJWT(user.Email!, user.UserName!);
+            var refreshTokenVM = _mapper.Map<RefreshTokenViewModel>(user);
+            refreshTokenVM.TokenJWT = _authService.GenerateJWT(user.Email!, user.UserName!);
 
             return new ResponseBase<RefreshTokenViewModel>
             {
                 ResponseInfo = null,
-                Value = userInfoVm
+                Value = refreshTokenVM
             };
         }
     }
