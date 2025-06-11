@@ -10,20 +10,20 @@ using MediatR;
 
 namespace Application.UserCQ.Handlers
 {
-    public class CreateUserCommandHandler(TasksDbContext context, IMapper mapper, IAuthService authService) : IRequestHandler<CreateUserCommand, ResponseBase<UserInfoViewModel?>>
+    public class CreateUserCommandHandler(TasksDbContext context, IMapper mapper, IAuthService authService) : IRequestHandler<CreateUserCommand, ResponseBase<RefreshTokenViewModel?>>
     {
         private readonly TasksDbContext _context = context;
         private readonly IMapper _mapper = mapper;
         private readonly IAuthService _authService = authService;
 
-        public async Task<ResponseBase<UserInfoViewModel>> Handle(CreateUserCommand request, CancellationToken cancellationToken)
+        public async Task<ResponseBase<RefreshTokenViewModel>> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
 
             var isUniqueEmailAndUsername = _authService.UniqueEmailAndUsername(request.Email!, request.Username!);
 
             if(isUniqueEmailAndUsername is ValidationFieldsUserEnum.EmailUnavailable)
             {
-                return new ResponseBase<UserInfoViewModel>
+                return new ResponseBase<RefreshTokenViewModel>
                 {
                     ResponseInfo = new()
                     {
@@ -37,7 +37,7 @@ namespace Application.UserCQ.Handlers
 
             if (isUniqueEmailAndUsername is ValidationFieldsUserEnum.UserNameUnavailable)
             {
-                return new ResponseBase<UserInfoViewModel>
+                return new ResponseBase<RefreshTokenViewModel>
                 {
                     ResponseInfo = new()
                     {
@@ -51,7 +51,7 @@ namespace Application.UserCQ.Handlers
 
             if (isUniqueEmailAndUsername is ValidationFieldsUserEnum.UsernameAndEmailUnavailable)
             {
-                return new ResponseBase<UserInfoViewModel>
+                return new ResponseBase<RefreshTokenViewModel>
                 {
                     ResponseInfo = new()
                     {
@@ -70,10 +70,10 @@ namespace Application.UserCQ.Handlers
             _context.Users.Add(user);
             _context.SaveChanges();
 
-            var userInfoVm = _mapper.Map<UserInfoViewModel>(user);
+            var userInfoVm = _mapper.Map<RefreshTokenViewModel>(user);
             userInfoVm.TokenJWT = _authService.GenerateJWT(user.Email!, user.UserName!);
 
-            return new ResponseBase<UserInfoViewModel>
+            return new ResponseBase<RefreshTokenViewModel>
             {
                 ResponseInfo = null,
                 Value = userInfoVm

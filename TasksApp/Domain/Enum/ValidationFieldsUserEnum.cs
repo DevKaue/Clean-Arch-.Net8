@@ -4,6 +4,7 @@
     {
         UserNameUnavailable,
         EmailUnavailable,
-        UsernameAndEmailUnavailable
+        UsernameAndEmailUnavailable,
+        FieldsOK
     }
 }

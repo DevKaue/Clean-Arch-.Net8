@@ -78,13 +78,17 @@ namespace Services.AuthService
                 return ValidationFieldsUserEnum.EmailUnavailable;
             }
 
-            if (usernameExists) 
+            else if (usernameExists) 
             {
                 return ValidationFieldsUserEnum.UserNameUnavailable;
             }
 
-            return ValidationFieldsUserEnum.UsernameAndEmailUnavailable;
-                
+            else if(usernameExists && emailExists)
+            {
+                return ValidationFieldsUserEnum.UsernameAndEmailUnavailable;
+            }
+
+            return ValidationFieldsUserEnum.FieldsOK;
         }
     }
 }

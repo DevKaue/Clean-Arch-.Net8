@@ -9,9 +9,10 @@ namespace API.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class AuthController(IMediator mediator) : ControllerBase
+    public class AuthController(IMediator mediator, IConfiguration configuration) : ControllerBase
     {
         private readonly IMediator _mediator = mediator;
+        private readonly IConfiguration _configuration = configuration;
 
         /// <summary>
         /// Rota responsável pela criação de usuário
@@ -39,6 +40,37 @@ namespace API.Controllers
         public async Task<ActionResult<UserInfoViewModel>> CreateUser(CreateUserCommand command)
         {
             var request = await _mediator.Send(command);
+
+            if(request.ResponseInfo is null)
+            {
+                var userInfo = request.Value;
+
+                if (userInfo is not null) 
+                {
+                    var cookieOptionsToken = new CookieOptions
+                    {
+                        HttpOnly = true,
+                        Secure = true,
+                        Expires = DateTimeOffset.UtcNow.AddDays(2)
+                    };
+
+                    _ = int.TryParse(_configuration["JWT:RefreshTokenExpirationTimeInDays"], out int refreshTokenExpirationTimeInDays);
+
+                    var cookieOptionsRefreshToken = new CookieOptions
+                    {
+                        HttpOnly = true,
+                        Secure = true,
+                        Expires = DateTimeOffset.UtcNow.AddDays(refreshTokenExpirationTimeInDays)
+                    };
+
+                    Response.Cookies.Append("jwt",request!.Value!.TokenJWT!, cookieOptionsToken);
+                    Response.Cookies.Append("refreshToken", request!.Value!.RefreshToken!, cookieOptionsRefreshToken);
+
+                    return Ok(request);
+                }
+            }
+
+            return BadRequest(request);
         }
     }
 }
