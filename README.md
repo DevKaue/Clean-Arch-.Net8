@@ -129,8 +129,3 @@ Authorization: Bearer <seu-token>
 - Injeção de dependência nativa do .NET
   
 ---
-
-## 👨‍💻 Autor
-
-**Kauê Wendt Sabino**  
-
