@@ -9,7 +9,7 @@ namespace API.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class UserController(IMediator mediator) : ControllerBase
+    public class AuthController(IMediator mediator) : ControllerBase
     {
         private readonly IMediator _mediator = mediator;
 
@@ -38,7 +38,7 @@ namespace API.Controllers
         [HttpPost("Create-User")]
         public async Task<ActionResult<UserInfoViewModel>> CreateUser(CreateUserCommand command)
         {
-            return Ok(await _mediator.Send(command));
+            var request = await _mediator.Send(command);
         }
     }
 }

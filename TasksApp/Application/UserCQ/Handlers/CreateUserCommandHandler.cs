@@ -4,6 +4,7 @@ using Application.UserCQ.ViewModels;
 using AutoMapper;
 using Domain.Abstractions;
 using Domain.Entity;
+using Domain.Enum;
 using Infra.Persistence;
 using MediatR;
 
@@ -17,6 +18,51 @@ namespace Application.UserCQ.Handlers
 
         public async Task<ResponseBase<UserInfoViewModel>> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
+
+            var isUniqueEmailAndUsername = _authService.UniqueEmailAndUsername(request.Email!, request.Username!);
+
+            if(isUniqueEmailAndUsername is ValidationFieldsUserEnum.EmailUnavailable)
+            {
+                return new ResponseBase<UserInfoViewModel>
+                {
+                    ResponseInfo = new()
+                    {
+                        Title = "Email indisponível.",
+                        ErrorDescription = "O email apresentado já está sendo utilizado. Tente outro.",
+                        HTTPStatus = 400
+                    },
+                    Value = null,
+                };
+            }
+
+            if (isUniqueEmailAndUsername is ValidationFieldsUserEnum.UserNameUnavailable)
+            {
+                return new ResponseBase<UserInfoViewModel>
+                {
+                    ResponseInfo = new()
+                    {
+                        Title = "Username indisponível.",
+                        ErrorDescription = "O username apresentado já está sendo utilizado. Tente outro.",
+                        HTTPStatus = 400
+                    },
+                    Value = null,
+                };
+            }
+
+            if (isUniqueEmailAndUsername is ValidationFieldsUserEnum.UsernameAndEmailUnavailable)
+            {
+                return new ResponseBase<UserInfoViewModel>
+                {
+                    ResponseInfo = new()
+                    {
+                        Title = "Username e Email indisponíveis.",
+                        ErrorDescription = "O username e o email apresentados já está sendo utilizados. Tente outros.",
+                        HTTPStatus = 400
+                    },
+                    Value = null,
+                };
+            }
+
             var user = _mapper.Map<User>(request);
             user.RefreshToken = _authService.GenerateRefreshToken();
             user.PasswordHash = _authService.HashingPassword(request.Password!);
