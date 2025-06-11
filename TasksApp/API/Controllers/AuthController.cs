@@ -114,5 +114,47 @@ namespace API.Controllers
 
             return BadRequest(request);
         }
+
+        /// <summary>
+        /// Rota responsável pelo refreshToken
+        /// </summary>
+        [HttpPost("RefreshToken")]
+        public async Task<ActionResult<ResponseBase<UserInfoViewModel>>> RefreshToken (RefreshTokenCommand command)
+        {
+            var request = await _mediator.Send(new RefreshTokenCommand
+            {
+                Username = command.Username,
+                RefreshToken = Request.Cookies["refreshToken"]
+            });
+            if (request.ResponseInfo is null)
+            {
+                var userInfo = request.Value;
+
+                if (userInfo is not null)
+                {
+                    var cookieOptionsToken = new CookieOptions
+                    {
+                        HttpOnly = true,
+                        Secure = true,
+                        Expires = DateTimeOffset.UtcNow.AddDays(7)
+                    };
+
+                    _ = int.TryParse(_configuration["JWT:RefreshTokenExpirationTimeInDays"], out int refreshTokenExpirationTimeInDays);
+
+                    var cookieOptionsRefreshToken = new CookieOptions
+                    {
+                        HttpOnly = true,
+                        Secure = true,
+                        Expires = DateTimeOffset.UtcNow.AddDays(refreshTokenExpirationTimeInDays)
+                    };
+
+                    Response.Cookies.Append("jwt", request.Value!.TokenJWT!, cookieOptionsToken);
+                    Response.Cookies.Append("refreshToken", request.Value!.RefreshToken!, cookieOptionsRefreshToken);
+                    return Ok(_mapper.Map<UserInfoViewModel>(request.Value));
+                }
+            }
+
+            return BadRequest(request);
+        }
     }
 }
