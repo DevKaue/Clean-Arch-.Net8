@@ -6,7 +6,7 @@ namespace Infra.Repository.UnitOfWork
     {
         // Get, Update, Delete, GetAll, Create
 
-        T? Get(Expression<Func<T, bool>> expression);
+        Task<T?> Get(Expression<Func<T, bool>> expression);
         IEnumerable<T> GetAll();
         Task<T> Create(T command);
         Task<T> Update(T commandUpdate);

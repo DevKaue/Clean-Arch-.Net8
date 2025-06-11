@@ -14,6 +14,7 @@ using Domain.Abstractions;
 using Services.AuthService;
 using Infra.Repository.IRepositories;
 using Infra.Repository.Repositories;
+using Infra.Repository.UnitOfWork;
 
 namespace API
 {
@@ -101,6 +102,7 @@ namespace API
         public static void AddRepositories(this WebApplicationBuilder builder)
         {
             builder.Services.AddScoped<IUserRepository, UserRepository>();
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }
 }
