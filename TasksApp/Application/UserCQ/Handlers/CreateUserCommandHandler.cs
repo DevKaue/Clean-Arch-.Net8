@@ -5,14 +5,14 @@ using AutoMapper;
 using Domain.Abstractions;
 using Domain.Entity;
 using Domain.Enum;
-using Infra.Persistence;
+using Infra.Repository.Repositories;
 using MediatR;
 
 namespace Application.UserCQ.Handlers
 {
-    public class CreateUserCommandHandler(TasksDbContext context, IMapper mapper, IAuthService authService) : IRequestHandler<CreateUserCommand, ResponseBase<RefreshTokenViewModel?>>
+    public class CreateUserCommandHandler(IUnitOfWork unitOfWork, IMapper mapper, IAuthService authService) : IRequestHandler<CreateUserCommand, ResponseBase<RefreshTokenViewModel?>>
     {
-        private readonly TasksDbContext _context = context;
+        private readonly IUnitOfWork _unitOfWork = unitOfWork;
         private readonly IMapper _mapper = mapper;
         private readonly IAuthService _authService = authService;
 
@@ -67,9 +67,9 @@ namespace Application.UserCQ.Handlers
             user.RefreshToken = _authService.GenerateRefreshToken();
             user.PasswordHash = _authService.HashingPassword(request.Password!);
 
-            _context.Users.Add(user);
-            _context.SaveChanges();
-
+            await _unitOfWork.UserRepository.Create(user);
+            _unitOfWork.Commit();
+           
             var refreshTokenVM = _mapper.Map<RefreshTokenViewModel>(user);
             refreshTokenVM.TokenJWT = _authService.GenerateJWT(user.Email!, user.UserName!);
 

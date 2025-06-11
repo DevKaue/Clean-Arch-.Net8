@@ -33,5 +33,10 @@
             Rota responsável pelo login do usuário
             </summary>
         </member>
+        <member name="M:API.Controllers.AuthController.RefreshToken(Application.UserCQ.Commands.RefreshTokenCommand)">
+            <summary>
+            Rota responsável pelo refreshToken
+            </summary>
+        </member>
     </members>
 </doc>
