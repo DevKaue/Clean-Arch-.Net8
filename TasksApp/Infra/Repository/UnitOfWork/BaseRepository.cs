@@ -1,33 +1,39 @@
-﻿using System.Linq.Expressions;
+﻿using Infra.Persistence;
+using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace Infra.Repository.UnitOfWork
 {
-    public class BaseRepository<T> : IBaseRepository<T> where T : class
+    public class BaseRepository<T>(TasksDbContext context) : IBaseRepository<T> where T : class
     {
         // Get, Update, Delete, GetAll, Create
-        public Task<T> Create(T command)
+        private readonly TasksDbContext _context = context;
+        public async Task<T> Create(T command)
         {
-            throw new NotImplementedException();
+            await _context.Set<T>().AddAsync(command);
+            return command; 
         }
 
         public Task Delete(Guid id)
         {
-            throw new NotImplementedException();
+            _context.Remove(id);
+            return Task.CompletedTask;
         }
 
-        public T? Get(Expression<Func<T, bool>> expression)
+        public async Task<T?> Get(Expression<Func<T, bool>> expression)
         {
-            throw new NotImplementedException();
+            return await _context.Set<T>().FirstOrDefaultAsync(expression);
         }
 
         public IEnumerable<T> GetAll()
         {
-            throw new NotImplementedException();
+            return [.. _context.Set<T>().ToList()];
         }
 
-        public Task<T> Update(T commandUpdate)
+        public async Task<T> Update(T commandUpdate)
         {
-            throw new NotImplementedException();
+            _context.Set<T>().Update(commandUpdate);
+            return commandUpdate;
         }
     }
 }
