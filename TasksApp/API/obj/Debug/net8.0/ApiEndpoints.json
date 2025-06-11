@@ -1,8 +1,8 @@
 [
   {
-    "ContainingType": "API.Controllers.UserController",
+    "ContainingType": "API.Controllers.AuthController",
     "Method": "CreateUser",
-    "RelativePath": "User/Create-User",
+    "RelativePath": "Auth/Create-User",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

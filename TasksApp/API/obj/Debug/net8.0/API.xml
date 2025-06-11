@@ -4,7 +4,7 @@
         <name>API</name>
     </assembly>
     <members>
-        <member name="M:API.Controllers.UserController.CreateUser(Application.UserCQ.Commands.CreateUserCommand)">
+        <member name="M:API.Controllers.AuthController.CreateUser(Application.UserCQ.Commands.CreateUserCommand)">
             <summary>
             Rota responsável pela criação de usuário
             </summary>
