@@ -1,6 +1,6 @@
 # 📋 Task App - Gerenciador de Tarefas
 
-Este projeto é um **aplicativo de gerenciamento de tarefas** desenvolvido com **.NET 8** e arquitetura **CQRS**, ideal para criar, listar, atualizar e excluir tarefas de forma segura e eficiente.
+Este projeto é um **aplicativo de gerenciamento de tarefas** desenvolvido com **.NET 8** e arquitetura **CQRS**, baseado no curso de Clean-Arch em .Net 8 realizado na Udemy.
 
 ---
 
