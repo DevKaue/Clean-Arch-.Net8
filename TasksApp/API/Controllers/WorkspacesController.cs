@@ -11,7 +11,8 @@ namespace API.Controllers
         public static void WorkspacesRoutes(this WebApplication app)
         {
             var group = app.MapGroup("Workspaces").WithTags("Workspaces");
-            group.MapPost("create-workspace", () => CreateWorkspace);
+
+            group.MapPost("create-workspace", () => CreateWorkspace).RequireAuthorization(); // mesmo que utilizar Autorize nas Controller
             group.MapPost("edit-workspace", () => EditWorkspace);
             group.MapPost("delete-workspace", () => DeleteWorkspace);
             group.MapPost("get-all-workspace", () => GetAllWorkspace);
@@ -20,24 +21,30 @@ namespace API.Controllers
             //Delegates
         }
 
-        public static Results<Ok, BadRequest> CreateWorkspace([FromServices] IMediator _mediator
-            , [FromBody] CreateWorkspaceCommand command)
+        public static async Task<IResult> CreateWorkspace(
+            [FromServices] IMediator _mediator,
+            [FromBody] CreateWorkspaceCommand command)
         {
-            
+            var result = await _mediator.Send(command);
+            if(result.ResponseInfo is null)
+            {
+                return Results.Ok(result.Value);
+            }
+            return Results.BadRequest(result.ResponseInfo);
         }
-        public static Results<Ok, BadRequest> EditWorkspace([FromServices] IMediator _mediator)
-        {
-
-        }
-        public static Results<Ok, BadRequest> DeleteWorkspace([FromServices] IMediator _mediator)
-        {
-
-        }
-        public static Results<Ok, BadRequest> GetAllWorkspace([FromServices] IMediator _mediator)
+        public static async Task<IResult> EditWorkspace([FromServices] IMediator _mediator)
         {
 
         }
-        public static Results<Ok, BadRequest> GetWorkspace([FromServices] IMediator _mediator)
+        public static async Task<IResult> DeleteWorkspace([FromServices] IMediator _mediator)
+        {
+
+        }
+        public static async Task<IResult> GetAllWorkspace([FromServices] IMediator _mediator)
+        {
+
+        }
+        public static async Task<IResult> GetWorkspace([FromServices] IMediator _mediator)
         {
 
         }
