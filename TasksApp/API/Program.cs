@@ -1,4 +1,5 @@
-using API;
+using API.Controllers;
+using API.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -26,5 +27,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.WorkspacesRoutes();
 
 app.Run();

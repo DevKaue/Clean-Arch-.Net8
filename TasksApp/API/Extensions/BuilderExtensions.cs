@@ -16,7 +16,7 @@ using Infra.Repository.IRepositories;
 using Infra.Repository.Repositories;
 using Infra.Repository.UnitOfWork;
 
-namespace API
+namespace API.Extensions
 {
     public static class BuilderExtensions
     {
@@ -40,7 +40,7 @@ namespace API
                         Url = new Uri("hhtps://example.com/license")
                     }
                 });
-                var xmlFilename= $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
             });
         }
@@ -96,7 +96,7 @@ namespace API
 
         public static void AddInjections(this WebApplicationBuilder builder)
         {
-            builder.Services.AddScoped<IAuthService,AuthService>();
+            builder.Services.AddScoped<IAuthService, AuthService>();
         }
 
         public static void AddRepositories(this WebApplicationBuilder builder)
