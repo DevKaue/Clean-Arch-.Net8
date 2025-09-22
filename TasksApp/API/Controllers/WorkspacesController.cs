@@ -1,4 +1,5 @@
 ﻿using Application.UserCQ.Commands;
+using Application.WorkspaceCQ.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
@@ -19,7 +20,8 @@ namespace API.Controllers
             //Delegates
         }
 
-        public static Results<Ok, BadRequest> CreateWorkspace([FromServices] IMediator _mediator)
+        public static Results<Ok, BadRequest> CreateWorkspace([FromServices] IMediator _mediator
+            , [FromBody] CreateWorkspaceCommand command)
         {
             
         }
